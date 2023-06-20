@@ -3,6 +3,7 @@ import styled from 'styled-components/native'
 
 import { Arrow, Separator } from 'src/shared'
 import { Quote } from 'src/types'
+import { colors } from 'src/utils'
 
 import { ITEM_HEIGHT } from './table'
 
@@ -11,7 +12,7 @@ type Props = { item: Quote }
 export const TableRow = ({ item }: Props) => {
   const { name, last, highestBid, percentChange } = item
   const percentValue = Number(percentChange) * 100
-  const iconColor = percentValue > 0 ? '#68D866' : '#f23937'
+  const iconColor = percentValue > 0 ? colors.green : colors.red
   const iconRotate = {
     transform: [{ rotate: percentValue > 0 ? '180deg' : '0deg' }],
   }
@@ -29,7 +30,8 @@ export const TableRow = ({ item }: Props) => {
         <CellValue
           style={{
             textAlign: 'right',
-          }}>
+          }}
+        >
           {percentValue.toFixed(2)}%
         </CellValue>
       </Wrap>

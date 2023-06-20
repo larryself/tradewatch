@@ -2,6 +2,7 @@ import axios from 'axios'
 import { makeAutoObservable, runInAction } from 'mobx'
 
 import { Quote, QuoteData } from 'src/types'
+import { URL } from 'src/utils'
 
 export class Quotes {
   quotes: Quote[] = []
@@ -24,9 +25,7 @@ export class Quotes {
       if (this.isFistLoad) {
         this.isLoading = true
       }
-      const { data } = await axios.get<QuoteData>(
-        'https://poloniex.com/public?command=returnTicker',
-      )
+      const { data } = await axios.get<QuoteData>(`${URL}returnTicker`)
       runInAction(() => {
         this.quotes = this.formattedQuotes(data)
         this.isError = false

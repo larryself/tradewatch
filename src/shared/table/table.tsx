@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 
 import { Separator, TableRow } from 'src/shared'
 import { Quote } from 'src/types'
+import { colors } from 'src/utils'
 
 type Props = {
   quotes: Quote[]
@@ -61,9 +62,9 @@ const TableTitle = styled(TableCell)`
   font-weight: bold;
 `
 const ErrorBox = styled.View`
-  background-color: #af0101;
+  background-color: ${colors.dark_red};
 `
 const ErrorTitle = styled.Text`
-  color: #ffffff;
+  color: ${colors.white};
   text-align: center;
 `
