@@ -7,6 +7,7 @@ import styled from 'styled-components/native'
 
 import { Table } from 'src/shared'
 import { store } from 'src/store'
+import { colors } from 'src/utils'
 
 export const QuotesScreen = observer(() => {
   const { quotes, isLoading, getQuotes, isError } = store.quotes
@@ -26,7 +27,7 @@ export const QuotesScreen = observer(() => {
   if (isLoading) {
     return (
       <LoaderWrap>
-        <ActivityIndicator size="large" color="#383838" />
+        <ActivityIndicator size="large" color={colors.gray} />
       </LoaderWrap>
     )
   }
